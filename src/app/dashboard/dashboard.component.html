@@ -1,0 +1,58 @@
+<!--<p>
+  dashboard works!
+</p>
+<ngx-carousel
+  [inputs]="carouselTile"
+  (carouselLoad)="carouselTileLoad($event)">
+
+  <ngx-tile NgxCarouselItem *ngFor="let Tile of carouselTileItems">
+    <h1>{{Tile + 1}}</h1>
+  </ngx-tile>
+
+  <button NgxCarouselPrev class='leftRs'>&lt;</button>
+  <button NgxCarouselNext class='rightRs'>&gt;</button>
+</ngx-carousel>
+<ngx-carousel
+  [inputs]="carouselTile"
+  (carouselLoad)="carouselTileLoad($event)">
+
+  <ngx-tile NgxCarouselItem *ngFor="let Tile of carouselTileItems">
+    <h1>{{Tile.name}}</h1>
+  </ngx-tile>
+
+  <button NgxCarouselPrev class='leftRs'>&lt;</button>
+  <button NgxCarouselNext class='rightRs'>&gt;</button>
+</ngx-carousel>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+</head>
+
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div style="background:Blue;" class="text-left">
+      <br><span style="font-size:20px;color:white;font-weight:bold;padding:50px;">Dashboard<br><br></span>
+    </div>
+  </div>
+  <!-- Main component for a primary marketing message or call to action -->
+   <div class="row">
+  <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3" style="">
+    <div style="background:orange;margin-top:250px;" class="text-center">
+      <br><span style="font-size:20px;color:white;font-weight:bold;">Store<br><br></span>
+    </div>
+  </div>
+  <div class="col-sm-9 col-xs-9 col-md-9 col-lg-9 event-content" style="height:100%;background:#f3eeee;">
+    <app-collections *ngIf="!showCategory" (messageEvent)="showCategories($event)"></app-collections>
+    <app-categories *ngIf="showCategory"></app-categories>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

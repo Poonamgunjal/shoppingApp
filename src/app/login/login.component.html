@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">-->
+
+  <!-- Website Font style -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  <!-- Google Fonts -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card card-container">
+    <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form class="form-signin" [formGroup]="loginForm">
+      <span id="reauth-email" class="reauth-email"></span>
+      <div class="form-group">
+        <mat-form-field class="">
+          <input matInput placeholder="Email" formControlName="username" class=""
+                 [errorStateMatcher]="matcher">
+          <mat-hint>Errors appear instantly!</mat-hint>
+          <mat-error *ngIf="username.hasError('email') && !username.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="username.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error></mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <br><br><br>
+          <input matInput placeholder="Enter your password" formControlName="password" class="" [type]="hide ? 'password' : 'text'">
+
+        </mat-form-field>
+
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="onSubmit()">Sign in</button>
+    </form><!-- /form -->
+
+  </div><!-- /card-container -->
+</div><!-- /container -->
+</body>
+</html>
