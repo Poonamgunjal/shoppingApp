@@ -10,6 +10,10 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private _router: Router) { }
 
+   public phoneTileItems: Array<any>;
+ public collection: Array<any>;
+
+
   ngOnInit() {
 
     this.phoneTileItems = [

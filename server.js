@@ -36,7 +36,7 @@ app.post('/login-data', function(req, res) {
   username=req.body.name;
   password=req.body.pass;
 
-   if(username=="admin" && password=="admin"){
+   if(username=="admin@gmail.com" && password=="admin"){
       console.log("You have login successfully!!",res.statusCode);
        res.json(res.statusCode);
    }

@@ -1,7 +1,8 @@
-<div class="layout">
+<div class="category-container">
   <section class="inner">
     <ul class="grid">
-      <li class="grid-tile" *ngFor="let item of collection | paginate: { itemsPerPage: 9, currentPage: p }">
+      <li class="grid-tile"
+          *ngFor="let item of collection | paginate: { itemsPerPage: 9, currentPage: p }">
         <div class="item" (click)="productDetails()">
           <div class="item-img">
             <img src="/assets/img/{{item.img}}" alt="pic"/>

@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import { NgxCarousel } from 'ngx-carousel';
+
 
 @Component({
   selector: 'app-collections',
@@ -11,6 +13,7 @@ export class CollectionsComponent implements OnInit {
 
 
  public carouselTileItems: Array<any>;
+ public phoneTileItems: Array<any>;
   public carouselTile: NgxCarousel;
 
   ngOnInit(){

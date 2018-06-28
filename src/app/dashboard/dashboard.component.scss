@@ -1,1 +1,27 @@
+.dashboard-container{
+    .dashboard-view{
+      background:Blue;
 
+        .title{
+         font-size:20px;
+         color:white;
+         font-weight:bold;
+         padding:50px;
+        }
+    }
+
+    .store-view{
+      background:orange;
+      margin-top:250px;
+
+        .title{
+        font-size:20px;
+        color:white;
+        font-weight:bold;
+        }
+    }
+    .collection-view{
+      height:100%;
+      background:#f3eeee;
+    }
+}
