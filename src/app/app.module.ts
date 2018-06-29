@@ -19,6 +19,7 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticateService } from './authenticate.service';
+import {DataCollectionService} from './data-collection.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgxCarouselModule } from 'ngx-carousel';
 import 'hammerjs';
@@ -66,7 +67,7 @@ import { CartComponent } from './cart/cart.component';
 
 
   ],
-  providers: [AuthenticateService],
+  providers: [AuthenticateService,DataCollectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

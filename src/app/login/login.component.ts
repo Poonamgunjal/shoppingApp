@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { first } from 'rxjs/operators';
 import {AuthenticateService} from '../authenticate.service';
+import {DataCollectionService} from '../data-collection.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
 
 
 
- username = new FormControl('', [
+ email = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
@@ -38,10 +39,10 @@ export class LoginComponent implements OnInit {
      submitted = false;
      returnUrl: string;
 
-    constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthenticateService) { }
+    constructor(private formBuilder: FormBuilder, private router: Router,
+     private authService: AuthenticateService,private collectionService: DataCollectionService) { }
 ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
             password: ['', Validators.required]
         });
 }
@@ -51,10 +52,11 @@ ngOnInit() {
      }
 
     onSubmit() {
-    console.log('hhhhhhhhhhh');
+    console.log('hhhhhhhhhhh',this.email.value,this.f.password.value);
       this.submitted = true;
               this.loading = true;
-             this.authService.login(this.f.username.value, this.f.password.value);
+             this.authService.login(this.email.value, this.f.password.value);
+             this.collectionService.getData();
 
 
     }

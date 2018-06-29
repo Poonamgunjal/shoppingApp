@@ -43,6 +43,47 @@ app.post('/login-data', function(req, res) {
 
 });
 
+app.post('/get-data', function(req, res) {
+ console.log("hello",req.body,'dfffffffffffffffffffffffffffff');
+  var carouselTileItems = [
+      {name:'a',img:'el-1.jpg'},
+      {name:'a',img:'el-2.jpg'},
+      {name:'a',img:'el-3.jpg'},
+      {name:'a',img:'el-4.jpg'},
+      {name:'a',img:'el-5.jpg'},
+      {name:'a',img:'el-6.jpeg'},
+      {name:'a',img:'el-7.jpg'},
+      {name:'a',img:'el-8.jpeg'},
+      {name:'a',img:'el-9.jpg'},
+      {name:'a',img:'el-11.jpg'},
+      {name:'a',img:'el-12.jpg'},
+      {name:'a',img:'el-13.jpg'}
+      ];
+      var phoneTileItems = [
+          {name:'a',img:'ph-1.jpg'},
+          {name:'a',img:'ph-2.jpg'},
+          {name:'a',img:'ph-3.jpg'},
+          {name:'a',img:'ph-4.png'},
+          {name:'a',img:'ph-5.jpg'},
+          {name:'a',img:'ph-6.jpg'},
+          {name:'a',img:'ph-7.jpg'},
+          {name:'a',img:'ph-8.jpg'},
+          {name:'a',img:'ph-9.jpg'},
+          {name:'a',img:'ph-10.jpg'},
+          {name:'a',img:'ph-11.jpeg'},
+          {name:'a',img:'ph-12.png'}
+          ];
+
+
+      console.log("get data");
+       res.send({
+           elect:carouselTileItems,
+           phone:phoneTileItems,
+         });
+
+
+});
+
 /**ng
  * Get port from environment and store in Express.
  */

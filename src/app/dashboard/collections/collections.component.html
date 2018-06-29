@@ -1,11 +1,13 @@
 <div class="row collection-container">
-  <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
-    <div class="text-center desc-view">
-      <br>
-      <span class="title" (click)="sendMessage()">View all<br><br></span>
+  <div class="col-sm-2 col-xs-5 col-md-2 col-lg-2 text-center view-all">
+    <span class="header text center">Best of electronic devices</span>
+    <br> <br>
+    <div class="text-center desc-view" (click)="sendMessage(carouselTileItems)">
+
+      <span class="title">View all<br></span>
     </div>
   </div>
-  <div class="col-sm-10 col-xs-10 col-md-10 col-lg-10">
+  <div class="col-sm-10 col-xs-7 col-md-10 col-lg-10">
     <ngx-carousel
       [inputs]="carouselTile"
       (carouselLoad)="carouselTileLoad($event)" class="carosel-container">
@@ -13,12 +15,12 @@
       <ngx-tile NgxCarouselItem *ngFor="let Tile of carouselTileItems">
         <div class="block">
 
-          <div class="middle">
+          <div class="row middle">
             <img src="/assets/img/{{Tile.img}}" alt="pic" />
           </div>
 
-          <div class="bottom">
-            <div class="heading">Available in all classic Colours</div>
+          <div class="row bottom">
+            <div><h5>Available in all classic Colours</h5></div>
             <div>$50.00 <span class="old-price">$75.00</span></div>
           </div>
 
@@ -33,13 +35,15 @@
 </div>
 
 <div class="row collection-container">
-  <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
-    <div class="text-center desc-view">
-      <br>
-      <span class="title" (click)="sendMessage()">View all<br><br></span>
+  <div class="col-sm-2 col-xs-5 col-md-2 col-lg-2 text-center view-all">
+    <span class="header text center">Best of electronic devices</span>
+    <br> <br>
+    <div class="text-center desc-view" (click)="sendMessage(phoneTileItems)">
+
+      <span class="title">View all<br></span>
     </div>
   </div>
-  <div class="col-sm-10 col-xs-10 col-md-10 col-lg-10">
+  <div class="col-sm-10 col-xs-7 col-md-10 col-lg-10">
     <ngx-carousel
       [inputs]="carouselTile"
       (carouselLoad)="carouselTileLoad($event)" class="carosel-container">
@@ -47,12 +51,12 @@
       <ngx-tile NgxCarouselItem *ngFor="let Tile of phoneTileItems">
         <div class="block">
 
-          <div class="middle">
+          <div class="row middle">
             <img src="/assets/img/{{Tile.img}}" alt="pic" />
           </div>
 
-          <div class="bottom">
-            <div class="heading">Available in all classic Colours</div>
+          <div class="row bottom">
+            <div><h5>Available in all classic Colours</h5></div>
             <div>$50.00 <span class="old-price">$75.00</span></div>
           </div>
 
