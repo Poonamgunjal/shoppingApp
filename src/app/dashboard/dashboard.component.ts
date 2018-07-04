@@ -9,33 +9,35 @@ import {Router} from '@angular/router';
 })
 
 export class DashboardComponent implements OnInit {
-private showCategory: boolean=false;
-   public dataCollection:string;
-  constructor(private router: Router) { }
-ngOnInit() {
+  private showCategory: boolean=false;
+  public dataCollection:string;
+
+  constructor(private router: Router) {
+  }
+
+  ngOnInit() {
 
   }
 
-ngDoCheck(){
+  ngDoCheck(){
 
   }
 
+//to show category component when view all is clicked
   showCategories($event) {
     this.showCategory = $event.msg;
     this.dataCollection = $event.obj;
-    console.log('this.message',this.showCategory,$event.obj);
   }
 
-
- addtoCart() {
-
+//for navigate to cart
+  goToCart() {
    this.router.navigate(['cart']);
   }
 
+//for dashboard navigate
   dashboard() {
-this.showCategory=false;
+     this.showCategory=false;
      this.router.navigate(['/dashboard']);
-         console.log('method route');
+  }
 
-    }
 }

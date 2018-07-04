@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-
 import {Router} from '@angular/router';
 
 @Injectable({
@@ -11,57 +9,57 @@ import {Router} from '@angular/router';
 })
 export class DataCollectionService {
 
- constructor(private http: HttpClient, private _router: Router) { }
+ constructor(private http: HttpClient, private _router: Router) {
+ }
 
   resData;
   selectedProduct;
   addProduct: any[]=new Array();
 
+//for getting collection data category wise in json format
  getData() {
-        console.log('getData');
-           const url = 'http://localhost:3000/get-data';
-           this.http.post<any>(url,'')
-               .subscribe((res) => {
-               if(res){
-                console.log("hello",res);
-                 this.resData=res;
-                 console.log("hellothis.resData",this.resData);
-               }
+   const url = 'http://localhost:3000/get-data';
+   this.http.post<any>(url,'')
+   .subscribe((res) => {
+    if(res){
+     console.log("hello",res);
+     this.resData=res;
+    }
 
-               });
-       }
+   });
+ }
 
-sendData() {
-         console.log("hello",this.resData);
-         return this.resData;
-             }
+//to return json data to collection component
+  sendData() {
+   return this.resData;
+  }
 
-            showCategory(item){
-              this.selectedProduct=item;
-              console.log('showCategory(item)',item,this.selectedProduct);
+//to save the selected product info
+  showCategory(item){
+   this.selectedProduct=item;
+   }
 
-            }
+//returns all selected product
+   sendProduct(){
+    return this.selectedProduct;
+   }
 
-            sendProduct(){
-             return this.selectedProduct;
-            }
+//save the selected data to cart
+    addToCart(item){
+      let flag=false;
+      for(let i=0;i<this.addProduct.length;i++){
+         if(this.addProduct[i].img==item.img){
+           flag=true;
+         }
+      }
+      if(flag==false){
+        this.addProduct.push(item);
+      }
 
-             addToCart(item){
-             let flag=false;
-             console.log('item addToCart',item,this.addProduct.length);
-                    for(let i=0;i<this.addProduct.length;i++){
-                    if(this.addProduct[i].img==item.img){
-                       flag=true;
-                    }
-                    }
-                    if(flag==false){
-                     this.addProduct.push(item);
-                     console.log('addToCart(item)',item, this.addProduct);
-                    }
+    }
 
-                        }
-
-                        showCart(){
-                        return this.addProduct;
-                        }
+//returns all added products in cart
+     showCart(){
+       return this.addProduct;
+     }
 }

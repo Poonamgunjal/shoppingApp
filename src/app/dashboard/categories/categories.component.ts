@@ -11,29 +11,35 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private _router: Router,private collectionService: DataCollectionService) { }
 
-   public phoneTileItems: Array<any>;
- public collection: Array<any>;
- @Input() selectedCategory: Array<any>;
+  public phoneTileItems: Array<any>;
+  public collection: Array<any>;
+  @Input() selectedCategory: Array<any>;
+  private pay: boolean=false;
 
   ngOnInit() {
- console.log('selected-category',this.selectedCategory);
     this.phoneTileItems =this.selectedCategory;
-        this.collection = [];
-     for (let i = 1; i <this.phoneTileItems.length; i++) {
-          this.collection.push(this.phoneTileItems[i]);
-        }
+    this.collection = [];
+    for (let i = 1; i <this.phoneTileItems.length; i++) {
+      this.collection.push(this.phoneTileItems[i]);
     }
+  }
 
-    productDetails(item){
-     this.collectionService.showCategory(item);
+//to navigate to product details page
+  productDetails(item){
+    this.collectionService.showCategory(item);
+    this._router.navigate(['product-details']);
+  }
 
-      this._router.navigate(['product-details']);
-    }
+  ngDoCheck(){
 
+  }
 
-    addItemToCart(item){
+//selected items get added into cart
+  addItemToCart(item){
+    this.pay=true;
     this.collectionService.addToCart(item);
-    }
-    }
+  }
+
+ }
 
 

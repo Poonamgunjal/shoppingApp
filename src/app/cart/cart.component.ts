@@ -9,23 +9,22 @@ import { Router} from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private collectionService: DataCollectionService,private router: Router) { }
-public cartItems;
+  constructor(private collectionService: DataCollectionService,private router: Router) {
+   }
+  public cartItems;
 
   ngOnInit() {
-
-  console.log();
-this.cartItems= this.collectionService.showCart();
-
+    this.cartItems= this.collectionService.showCart();
   }
- addtoCart() {
 
+  //to navigate to cart page
+  goToCart() {
    this.router.navigate(['cart']);
   }
 
+ // to navigate to dashboard view
   dashboard() {
-
-     this.router.navigate(['dashboard']);
-    }
+    this.router.navigate(['dashboard']);
+  }
 
 }

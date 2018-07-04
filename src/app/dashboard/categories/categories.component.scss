@@ -1,12 +1,21 @@
 .category-container {
-    //padding-top: 20px;
-
     .thumbnail{
       cursor: -webkit-grabbing;
       cursor: grabbing;
 
       &:hover {
-                    box-shadow: 0 0 11px rgba(33,33,33,.2);
-                }
+         box-shadow: 0 0 11px rgba(33,33,33,.2);
+      }
+    }
+    .image{
+      width:100%;
+      height:200px;
+    }
+
+    .bag{
+      cursor:pointer;
+      color:red;
+      font-size: 25px;
+      padding: 10px;
     }
 }

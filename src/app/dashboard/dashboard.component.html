@@ -2,25 +2,26 @@
   <div class="row dashboard-view">
 
     <div class="col-md-6 col-xs-6">
-      <span class="title text-left " style="cursor:pointer;" (click)="dashboard()">Shop
-        <i class="fa fa-shopping-basket" style="font-size:30px;color:#f4e633;"></i></span>
+      <span class="title text-left shop" (click)="dashboard()">Shop
+        <i class="fa fa-shopping-basket shop-icon"></i></span>
     </div>
     <div class="col-md-6 col-xs-6 text-right">
-        <span class="title " style="margin-right:32px;cursor:pointer;" (click)="addtoCart()">
-          <i class="fa fa-shopping-bag" style="font-size:30px;color:#ffffff;"></i>cart</span>
+        <span class="title cart" (click)="goToCart()">
+          <i class="fa fa-shopping-bag cart-icon"></i>cart</span>
     </div>
 
   </div>
-   <div class="row bg-row">
-  <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-    <div class="text-center store-view">
-      <br><span class="title">Store<br><br></span>
+
+  <div class="row bg-row">
+    <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+      <div class="text-center store-view">
+        <br><span class="title">Store<br><br></span>
+      </div>
     </div>
-  </div>
-  <div class="col-sm-9 col-xs-9 col-md-9 col-lg-9 collection-view text-center">
-    <app-collections *ngIf="!showCategory" (messageEvent)="showCategories($event)"></app-collections>
-    <app-categories *ngIf="showCategory" [selectedCategory]=dataCollection></app-categories>
-  </div>
+    <div class="col-sm-9 col-xs-9 col-md-9 col-lg-9 collection-view text-center">
+      <app-collections *ngIf="!showCategory" (messageEvent)="showCategories($event)"></app-collections>
+      <app-categories *ngIf="showCategory" [selectedCategory]=dataCollection></app-categories>
+    </div>
   </div>
 
 </div>

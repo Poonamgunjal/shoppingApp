@@ -1,36 +1,20 @@
 <div class="category-container">
   <section class="inner">
-   <!-- <ul class="grid">
-      <li class="grid-tile"
-          *ngFor="let item of collection | paginate: { itemsPerPage: 9, currentPage: p }">
 
-        <div class="card" style="width: 18rem;" (click)="productDetails()">
-          <img class="card-img-top" src="/assets/img/{{item.img}}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{item.name}}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">add to cart</a>
-          </div>
-        </div>
-      </li>
+    <div class="flex-row row">
 
-    </ul>-->
-
-      <div class="flex-row row">
-
-
-        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-3 text-center" *ngFor="let item of collection | paginate: { itemsPerPage: 8, currentPage: p }">
-          <div class="thumbnail"  style="">
+        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-3 text-center"
+             *ngFor="let item of collection | paginate: { itemsPerPage: 8, currentPage: p }">
+          <div class="thumbnail">
             <div class="caption" (click)="productDetails(item)">
-              <img src="/assets/img/{{item.img}}" alt="pic" style="width:100%;height:200px;"/>
+              <img src="/assets/img/{{item.img}}" alt="pic" class="image"/>
               <h5>Price : $80</h5>
               <h5>Rating : 4.3 ****</h5>
-
-
             </div>
+
           <div class="text-right">
-            <i class="fa fa-shopping-bag" aria-hidden="true"
-               style="cursor:pointer;color:red;font-size: 25px;padding: 10px;" (click)="addItemToCart(item)"></i>
+            <i class="fa fa-shopping-bag bag" aria-hidden="true"
+             (click)="addItemToCart(item)"></i>
            </div>
             <!-- /.caption -->
           </div>

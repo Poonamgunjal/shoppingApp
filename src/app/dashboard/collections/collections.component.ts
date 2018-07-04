@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { NgxCarousel } from 'ngx-carousel';
 import {DataCollectionService} from '../../data-collection.service';
 import {Router} from '@angular/router';
@@ -8,24 +8,21 @@ import {Router} from '@angular/router';
   templateUrl: './collections.component.html',
   styleUrls: ['./collections.component.scss']
 })
+
 export class CollectionsComponent implements OnInit {
 
-  constructor(private _router: Router, private collectionService: DataCollectionService) { }
-
+  constructor(private _router: Router, private collectionService: DataCollectionService) {
+   }
 
  public carouselTileItems: any[];
  public phoneTileItems: any[];
  public data: any[];
-  public carouselTile: NgxCarousel;
+ public carouselTile: NgxCarousel;
 
-  ngOnInit(){
-
+ ngOnInit(){
    this.data=this.collectionService.sendData();
-    this.carouselTileItems =this.data['elect'] ;
-    this.phoneTileItems =this.data['phone'] ;
-
-console.log('data',this.carouselTileItems,this.phoneTileItems);
-
+   this.carouselTileItems =this.data['elect'] ;
+   this.phoneTileItems =this.data['phone'] ;
 
     this.carouselTile = {
       grid: {xs: 2, sm: 3, md: 3, lg: 5, all: 0},
@@ -41,39 +38,34 @@ console.log('data',this.carouselTileItems,this.phoneTileItems);
     }
   }
 
+//decides how many tiles show on page in carousel as per category
   public carouselTileLoad(evt: any) {
-
-    const len = this.carouselTileItems.length
+    const len = this.carouselTileItems.length;
     if (len <= 13) {
       for (let i = len; i < len ; i++) {
         this.carouselTileItems.push(i);
-        console.log(this.carouselTileItems);
       }
     }
-const len1 = this.phoneTileItems.length
-    if (len1 <= 13) {
-      for (let i = len; i < len ; i++) {
-        this.phoneTileItems.push(i);
-        console.log(this.phoneTileItems);
+    const len1 = this.phoneTileItems.length
+      if (len1 <= 13) {
+        for (let i = len; i < len ; i++) {
+          this.phoneTileItems.push(i);
+        }
       }
-    }
   }
 
+// to handle component switching on dashboard view
   message: string ="true";
+  @Output() messageEvent = new EventEmitter();
 
-    @Output() messageEvent = new EventEmitter();
+  sendMessage(obj) {
+    this.messageEvent.emit({obj:obj,msg:this.message});
+  }
 
-    sendMessage(obj) {
+//when clicking on item product details component navigation handle here
+  productView(item){
+    this.collectionService.showCategory(item);
+    this._router.navigate(['product-details']);
+  }
 
-    console.log('obj',obj);
-        this.messageEvent.emit({obj:obj,msg:this.message});
-      }
-
-    productView(item){
-
-    console.log('productDetails collection',item);
-         this.collectionService.showCategory(item);
-
-          this._router.navigate(['product-details']);
-        }
 }

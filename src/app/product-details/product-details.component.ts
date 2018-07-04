@@ -7,34 +7,38 @@ import {DataCollectionService} from '../data-collection.service';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
+
 export class ProductDetailsComponent implements OnInit {
 
-  constructor(private router: Router,private collectionService: DataCollectionService) { }
-public prod;
-private goCart: boolean=false;
+  constructor(private router: Router,private collectionService: DataCollectionService) {
+  }
+
+  public prod;
+  private goCart: boolean=false;
+
   ngOnInit() {
   this.prod= this.collectionService.sendProduct();
   }
 
   ngDoCheck(){
 
-    }
+  }
 
+//add selected item into card
   addItemToCart(prod){
     this.goCart=true;
-  this.collectionService.addToCart(prod);
+    this.collectionService.addToCart(prod);
   }
 
-  addtoCart() {
-   this.router.navigate(['cart']);
-  }
 
+
+//navigate to dasgboard page
   dashboard() {
-     this.router.navigate(['dashboard']);
-    }
+    this.router.navigate(['dashboard']);
+  }
 
-    goToCart(){
-
-       this.router.navigate(['cart']);
-    }
+//navigate to cart page
+  goToCart(){
+     this.router.navigate(['cart']);
+  }
 }

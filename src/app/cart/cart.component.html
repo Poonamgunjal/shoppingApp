@@ -1,30 +1,29 @@
 <div class="cart-container">
-<div class="container-fluid" style="background: #f1f1f1;">
+<div class="container-fluid main-container">
   <div class="row dashboard-view">
 
     <div class="col-md-6 col-xs-6">
-      <span class="title text-left" style="cursor:pointer;" (click)="dashboard()">Shop
-        <i class="fa fa-shopping-basket" style="font-size:30px;color:#f4e633;"></i></span>
+      <span class="title text-left shop" (click)="dashboard()">Shop
+        <i class="fa fa-shopping-basket shop-icon"></i></span>
     </div>
     <div class="col-md-6 col-xs-6 text-right">
-        <span class="title " style="margin-right:33px;cursor:pointer;" (click)="addtoCart()">
-          <i class="fa fa-shopping-bag" style="font-size:30px;color:#ffffff;"></i>cart</span>
+        <span class="title cart" (click)="goToCart()">
+          <i class="fa fa-shopping-bag cart-icon"></i>cart</span>
     </div>
 
   </div>
-  <div class="container" id="product-section" style="background:white;margin-top:20px;">
+
+  <div class="container desc-container" id="product-section">
     <div class="row">
 
-      <button  class="btn btn-warning" (click)="dashboard()"
-               style="font-size:20px;font-weight:bold;margin:10px;">
+      <button  class="btn btn-warning back" (click)="dashboard()">
         Back</button>
-      <h3 style="margin:10px;">My Cart(<span style="color:red;">{{cartItems.length}}</span>)</h3>
+      <h3 class="page-title">My Cart(<span class="count">{{cartItems.length}}</span>)</h3>
     </div>
     <div class="row col-md-12" *ngFor="let item of cartItems">
       <hr> <div class="col-md-5 text-center">
 
-        <img style="width:50%;" src="/assets/img/{{item.img}}" alt="pic"/>
-
+        <img class="image" src="/assets/img/{{item.img}}" alt="pic"/>
 
       </div>
       <div class="col-md-7">
@@ -36,7 +35,6 @@
       </div>
 
     </div>
-
 
   </div><!-- end row -->
   <br><br><br>

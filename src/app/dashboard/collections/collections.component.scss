@@ -1,11 +1,12 @@
 .collection-container {
-
 	margin-left: 10px;
 	margin-right: 10px;
 	background: white;
 	margin-bottom: 30px;
+
 	.view-all {
 		margin-top: 80px;
+
 		.header {
 			font-size: 20px;
 			font-weight: bold;
@@ -19,14 +20,13 @@
 				font-size: 15px;
 				color: white;
 				font-weight: bold;
-
 			}
 		}
 	}
 	.carousel-view {
 	    padding-top: 25px;
       padding-bottom: 25px;
-}
+  }
 	.carosel-container {
 		.block {
 			border-radius: 4px;
@@ -43,9 +43,9 @@
       cursor: -webkit-grabbing;
        cursor: grabbing;
 
-          &:hover {
-              box-shadow: 0 0 11px rgba(33,33,33,.2);
-          }
+       &:hover {
+          box-shadow: 0 0 11px rgba(33,33,33,.2);
+       }
 
 			.middle {
 				margin-bottom: 40px;
@@ -68,12 +68,14 @@
 				justify-content: space-between;
 				-webkit-box-flex: 1;
 				-ms-flex-positive: 1;
+
 				.heading {
 					font-size: 17px;
 					text-transform: uppercase;
 					margin-bottom: 5px;
 					letter-spacing: 0;
 				}
+
 				.old-price {
 					color: #f00;
 					text-decoration: line-through;
