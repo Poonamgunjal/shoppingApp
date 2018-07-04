@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataCollectionService} from '../data-collection.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private collectionService: DataCollectionService,private router: Router) { }
+public cartItems;
 
   ngOnInit() {
+
+  console.log();
+this.cartItems= this.collectionService.showCart();
+
   }
+ addtoCart() {
+
+   this.router.navigate(['cart']);
+  }
+
+  dashboard() {
+
+     this.router.navigate(['dashboard']);
+    }
 
 }

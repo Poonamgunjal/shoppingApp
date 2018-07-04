@@ -1,35 +1,45 @@
 <div class="category-container">
   <section class="inner">
-    <ul class="grid">
+   <!-- <ul class="grid">
       <li class="grid-tile"
           *ngFor="let item of collection | paginate: { itemsPerPage: 9, currentPage: p }">
-        <div class="item" (click)="productDetails()">
-          <div class="item-img">
-            <img src="/assets/img/{{item.img}}" alt="pic"/>
-          </div>
-          <div class="item-pnl">
-            <div class="pnl-wrapper">
-              <div class="pnl-description">
-                <span class="pnl-label">Product Name</span>
-                <span class="pnl-price">$100,00</span>
-              </div>
-              <div class="pnl-favorites">
-                <div class="pnl-ic-wrapper">
-                  <span class="pnl-ic">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M22.6,6.5c-2.9,0-5.4,1.7-6.6,4.1c-1.2-2.4-3.7-4.1-6.6-4.1C5.3,6.5,2,9.8,2,13.9C2,23.7,15.8,29,15.8,29S30,23.6,30,13.9C30,9.8,26.7,6.5,22.6,6.5L22.6,6.5z"></path></svg></span>
-                </div>
-              </div>
-              <div class="pnl-tocart">
-                <div class="pnl-ic-wrapper">
-                  <span class="pnl-ic"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><g><path d="M25.4,29H6.6c-1.7,0-3-1.4-2.8-2.9l1.9-13.8C5.9,11,6.6,10,8,10h16c1.4,0,2.1,1,2.3,2.3l1.9,13.8 C28.4,27.6,27.1,29,25.4,29z"></path><path d="M10.6,12.7V8.4C10.6,5.4,13,3,16,3h0c3,0,5.4,2.4,5.4,5.4v4.3"></path></g></svg></span>
-                </div>
-              </div>
-            </div>
+
+        <div class="card" style="width: 18rem;" (click)="productDetails()">
+          <img class="card-img-top" src="/assets/img/{{item.img}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">add to cart</a>
           </div>
         </div>
       </li>
 
-    </ul>
+    </ul>-->
+
+      <div class="flex-row row">
+
+
+        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-3 text-center" *ngFor="let item of collection | paginate: { itemsPerPage: 8, currentPage: p }">
+          <div class="thumbnail"  style="">
+            <div class="caption" (click)="productDetails(item)">
+              <img src="/assets/img/{{item.img}}" alt="pic" style="width:100%;height:200px;"/>
+              <h5>Price : $80</h5>
+              <h5>Rating : 4.3 ****</h5>
+
+
+            </div>
+          <div class="text-right">
+            <i class="fa fa-shopping-bag" aria-hidden="true"
+               style="cursor:pointer;color:red;font-size: 25px;padding: 10px;" (click)="addItemToCart(item)"></i>
+           </div>
+            <!-- /.caption -->
+          </div>
+          <!-- /.thumbnail -->
+        </div>
+      </div>
+
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </section>
 </div>
+
+

@@ -1,81 +1,46 @@
-<div style="background:#f1f3f6;" class="container-fluid">
-<div class="container-fluid">
-  <div class="row">
-    <div style="background:Blue;" class="text-left col-md-12">
-      <br><span class="col-md-6" style="font-size:20px;color:white;font-weight:bold;">Dashboard </span>
-      <span class="col-md-6" style="font-size:20px;color:white;font-weight:bold;padding-right: 100px;text-align:right;">Cart</span>
-      <br><br>
+<div class="cart-container">
+<div class="container-fluid" style="background: #f1f1f1;">
+  <div class="row dashboard-view">
+
+    <div class="col-md-6 col-xs-6">
+      <span class="title text-left" style="cursor:pointer;" (click)="dashboard()">Shop
+        <i class="fa fa-shopping-basket" style="font-size:30px;color:#f4e633;"></i></span>
     </div>
+    <div class="col-md-6 col-xs-6 text-right">
+        <span class="title " style="margin-right:33px;cursor:pointer;" (click)="addtoCart()">
+          <i class="fa fa-shopping-bag" style="font-size:30px;color:#ffffff;"></i>cart</span>
+    </div>
+
   </div>
   <div class="container" id="product-section" style="background:white;margin-top:20px;">
     <div class="row">
-      <h3>My Cart(3)</h3>
-      <hr>
+
+      <button  class="btn btn-warning" (click)="dashboard()"
+               style="font-size:20px;font-weight:bold;margin:10px;">
+        Back</button>
+      <h3 style="margin:10px;">My Cart(<span style="color:red;">{{cartItems.length}}</span>)</h3>
     </div>
-    <div class="row">
-      <div class="col-md-6 text-center">
-        <br>
-        <br>
-        <br>
-        <br>
-        <img style="width:40%;" src="/assets/img/ph-1.jpg" alt="pic"/>
-        <br>
-        <br>
+    <div class="row col-md-12" *ngFor="let item of cartItems">
+      <hr> <div class="col-md-5 text-center">
+
+        <img style="width:50%;" src="/assets/img/{{item.img}}" alt="pic"/>
+
 
       </div>
-      <div class="col-md-6">
-        <br>
-        <br><i class="fa fa-shopping-bag" style="font-size:48px;color:red"></i>
-        <br>
-        <h1>Redmi 5A (Grey, 32 GB)  (3 GB RAM)</h1><br>
+      <div class="col-md-7">
+
+        <h2>Redmi 5A (Grey, 32 GB)  (3 GB RAM)</h2><br>
         <h4>2,905 Ratings & 540 Reviews</h4><br>
         <h3>MRP:500-/</h3><br>
 
       </div>
-    </div>
-    <div class="row">
-    <div class="col-md-6 text-center">
-      <br>
-      <br>
-      <br>
-      <br>
-      <img style="width:40%;" src="/assets/img/el-1.jpg" alt="pic"/>
-      <br>
-      <br>
 
     </div>
-    <div class="col-md-6">
-      <br>
-      <br><i class="fa fa-shopping-bag" style="font-size:48px;color:red"></i>
-      <br>
-      <h1>Redmi 5A (Grey, 32 GB)  (3 GB RAM)</h1><br>
-      <h4>2,905 Ratings & 540 Reviews</h4><br>
-      <h3>MRP:500-/</h3><br>
 
-    </div>
-  </div>
-  <div class="row">
-  <div class="col-md-6 text-center">
-    <br>
-    <br>
-    <br>
-    <br>
-    <img style="width:40%;" src="/assets/img/el-8.jpeg" alt="pic"/>
-    <br>
-    <br>
 
-  </div>
-  <div class="col-md-6">
-    <br>
-    <br><i class="fa fa-shopping-bag" style="font-size:48px;color:red"></i>
-    <br>
-    <h1>Redmi 5A (Grey, 32 GB)  (3 GB RAM)</h1><br>
-    <h4>2,905 Ratings & 540 Reviews</h4><br>
-    <h3>MRP:500-/</h3><br>
-
-  </div>
-</div>
   </div><!-- end row -->
+  <br><br><br>
+
 </div><!-- end contaistyner -->
 </div>
 

@@ -7,13 +7,18 @@ import {Router} from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+export class DashboardComponent implements OnInit {
+private showCategory: boolean=false;
+   public dataCollection:string;
+  constructor(private router: Router) { }
 ngOnInit() {
+
   }
- showCategory:string;
- dataCollection:string;
+
+ngDoCheck(){
+
+  }
 
   showCategories($event) {
     this.showCategory = $event.msg;
@@ -21,9 +26,16 @@ ngOnInit() {
     console.log('this.message',this.showCategory,$event.obj);
   }
 
-  dashboard(){
-   this._router.navigate(['dashboard']);
+
+ addtoCart() {
+
+   this.router.navigate(['cart']);
   }
 
+  dashboard() {
+this.showCategory=false;
+     this.router.navigate(['/dashboard']);
+         console.log('method route');
 
+    }
 }

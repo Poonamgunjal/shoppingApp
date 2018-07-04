@@ -42,9 +42,14 @@ export class LoginComponent implements OnInit {
     constructor(private formBuilder: FormBuilder, private router: Router,
      private authService: AuthenticateService,private collectionService: DataCollectionService) { }
 ngOnInit() {
+
+  console.log();
+
         this.loginForm = this.formBuilder.group({
             password: ['', Validators.required]
         });
+
+
 }
     // convenience getter for easy access to form fields
     get f() {

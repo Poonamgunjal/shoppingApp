@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import {Router} from '@angular/router';
+import {DataCollectionService} from '../../data-collection.service';
 
 @Component({
   selector: 'app-categories',
@@ -8,45 +9,31 @@ import {Router} from '@angular/router';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router,private collectionService: DataCollectionService) { }
 
    public phoneTileItems: Array<any>;
  public collection: Array<any>;
-
+ @Input() selectedCategory: Array<any>;
 
   ngOnInit() {
-
-    this.phoneTileItems = [
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-2.jpg'},
-        {name:'a',img:'ph-3.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-5.jpg'},
-        {name:'a',img:'ph-6.jpg'},
-        {name:'a',img:'ph-7.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-2.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-5.jpg'},
-        {name:'a',img:'ph-5.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-1.jpg'},
-        {name:'a',img:'ph-1.jpg'}
-        ];
+ console.log('selected-category',this.selectedCategory);
+    this.phoneTileItems =this.selectedCategory;
         this.collection = [];
      for (let i = 1; i <this.phoneTileItems.length; i++) {
           this.collection.push(this.phoneTileItems[i]);
         }
     }
 
-    productDetails(){
+    productDetails(item){
+     this.collectionService.showCategory(item);
+
       this._router.navigate(['product-details']);
     }
 
 
-}
+    addItemToCart(item){
+    this.collectionService.addToCart(item);
+    }
+    }
+
+

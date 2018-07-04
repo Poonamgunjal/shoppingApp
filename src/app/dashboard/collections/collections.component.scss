@@ -1,7 +1,9 @@
 .collection-container {
+
 	margin-left: 10px;
+	margin-right: 10px;
 	background: white;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	.view-all {
 		margin-top: 80px;
 		.header {
@@ -12,14 +14,19 @@
 		.desc-view {
 			background: green;
 			cursor: pointer;
+
 			.title {
 				font-size: 15px;
 				color: white;
 				font-weight: bold;
-				line-height: 45px;
+
 			}
 		}
 	}
+	.carousel-view {
+	    padding-top: 25px;
+      padding-bottom: 25px;
+}
 	.carosel-container {
 		.block {
 			border-radius: 4px;
@@ -33,11 +40,18 @@
 			-webkit-box-direction: normal;
 			-ms-flex-direction: column;
 			flex-direction: column;
+      cursor: -webkit-grabbing;
+       cursor: grabbing;
+
+          &:hover {
+              box-shadow: 0 0 11px rgba(33,33,33,.2);
+          }
+
 			.middle {
 				margin-bottom: 40px;
 				img {
 					width: 100%;
-					height: 30%;
+					height: 160px;
 				}
 			}
 			.bottom {
@@ -98,4 +112,17 @@
 			}
 		}
 	}
+}
+@media (min-width: 320px) and (max-width: 767px) {
+.collection-container{
+  	.rightRs {
+  	  width: 30px !important;
+    	height: 30px !important;
+     }
+
+     .leftRs {
+       width: 30px !important;
+       height: 30px !important;
+      }
+  }
 }

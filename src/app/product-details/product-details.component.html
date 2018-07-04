@@ -1,37 +1,48 @@
 <div style="background:#f1f3f6;">
 <div class="container-fluid">
-<div class="row">
-  <div style="background:Blue;" class="text-left col-md-12">
-    <br><span class="col-md-6" style="font-size:20px;color:white;font-weight:bold;">Dashboard </span>
-    <span class="col-md-6" style="font-size:20px;color:white;font-weight:bold;padding-right: 100px;text-align:right;cursor:pointer;" (click)="addtoCart()">Cart</span>
-    <br><br>
+<div class="row dashboard-view">
+
+    <div class="col-md-6 col-xs-6">
+      <span class="title text-left " style="cursor:pointer;" (click)="dashboard()">Shop
+        <i class="fa fa-shopping-basket" style="font-size:30px;color:#f4e633;"></i></span>
+    </div>
+      <div class="col-md-6 col-xs-6 text-right">
+        <span class="title " style="margin-right:32px;cursor:pointer;" (click)="addtoCart()">
+          <i class="fa fa-shopping-bag" style="font-size:30px;color:#ffffff;"></i>cart</span>
+      </div>
+
   </div>
 </div>
 <div class="container" id="product-section" style="background:white;margin-top:20px;">
   <div class="row">
     <div class="col-md-6 text-center">
-      <br>
-      <br>
-      <br>
-      <br>
-      <img style="width:70%;" src="/assets/img/ph-1.jpg" alt="pic"/>
-      <br>
-      <br>
-      <div>
-        <br>
-        <br>
-        <button class="btn btn-warning" style="margin-right:100px;margin-left:50px;font-size:25px;font-weight:bold;">Add to Cart</button>
-        <button class="btn btn-warning" style="font-size:25px;font-weight:bold;">Buy Now</button>
+
+      <img style="width:70%;height:260px;margin: 50px;" src="/assets/img/{{prod.img}}"/>
+
+      <div class="row">
+
+        <div class="col-md-6 ">
+          <button *ngIf="!goCart" class="btn btn-warning" (click)="addItemToCart(prod)"
+                  style="font-size:20px;font-weight:bold;margin-bottom:30px;">
+            Add to Cart</button>
+          <button *ngIf="goCart" class="btn btn-warning" (click)="goToCart()"
+                  style="font-size:20px;font-weight:bold;margin-bottom:30px;">
+            Go to Cart</button>
+        </div>
+          <div class="col-md-6 ">
+            <button class="col-md-6 btn btn-warning" style="font-size:20px;font-weight:bold;">
+              Buy Now</button>
+          </div>
       </div>
     </div>
     <div class="col-md-6">
       <br>
-      <br><i class="fa fa-shopping-bag" style="font-size:48px;color:red"></i>
+
       <br>
       <h1>Redmi 5A (Grey, 32 GB)  (3 GB RAM)</h1><br>
       <h4>2,905 Ratings & 540 Reviews</h4><br>
-      <h3>MRP:500-/</h3><br>
-      <h5>Description</h5><br>
+      <h3>MRP:500 R.S</h3><br>
+      <h2>Description :-</h2><br>
       <ul>
         <li>Super AMOLED capacitive touchscreen display with 16M colors</li>
         <li>Available on GSM, AT T, T-Mobile and other carriers</li>
@@ -53,5 +64,5 @@
     </div>
   </div><!-- end row -->
 </div>
-</div><!-- end contaistyner -->
+<!-- end contaistyner -->
 

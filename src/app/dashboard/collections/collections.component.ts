@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { NgxCarousel } from 'ngx-carousel';
 import {DataCollectionService} from '../../data-collection.service';
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-collections',
@@ -10,21 +10,19 @@ import {DataCollectionService} from '../../data-collection.service';
 })
 export class CollectionsComponent implements OnInit {
 
-  constructor(private collectionService: DataCollectionService) { }
+  constructor(private _router: Router, private collectionService: DataCollectionService) { }
 
 
- public carouselTileItems: Array<any>;
- public phoneTileItems: Array<any>;
- public data: Array<any>;
+ public carouselTileItems: any[];
+ public phoneTileItems: any[];
+ public data: any[];
   public carouselTile: NgxCarousel;
 
   ngOnInit(){
 
    this.data=this.collectionService.sendData();
-
-
-    this.carouselTileItems =this.data.elect ;
-    this.phoneTileItems =this.data.phone ;
+    this.carouselTileItems =this.data['elect'] ;
+    this.phoneTileItems =this.data['phone'] ;
 
 console.log('data',this.carouselTileItems,this.phoneTileItems);
 
@@ -71,5 +69,11 @@ const len1 = this.phoneTileItems.length
         this.messageEvent.emit({obj:obj,msg:this.message});
       }
 
+    productView(item){
 
+    console.log('productDetails collection',item);
+         this.collectionService.showCategory(item);
+
+          this._router.navigate(['product-details']);
+        }
 }
