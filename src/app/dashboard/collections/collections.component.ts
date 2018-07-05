@@ -18,7 +18,6 @@ export class CollectionsComponent implements OnInit {
  public phoneTileItems: any[];
  public data: any[];
  public carouselTile: NgxCarousel;
-
  ngOnInit(){
    this.data=this.collectionService.sendData();
    this.carouselTileItems =this.data['elect'] ;

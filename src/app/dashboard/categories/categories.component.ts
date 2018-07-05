@@ -23,7 +23,7 @@ export class CategoriesComponent implements OnInit {
       this.collection.push(this.phoneTileItems[i]);
     }
   }
-
+toggle = {};
 //to navigate to product details page
   productDetails(item){
     this.collectionService.showCategory(item);
@@ -35,7 +35,8 @@ export class CategoriesComponent implements OnInit {
   }
 
 //selected items get added into cart
-  addItemToCart(item){
+  addItemToCart(item,x){
+  console.log('x',x);
     this.pay=true;
     this.collectionService.addToCart(item);
   }

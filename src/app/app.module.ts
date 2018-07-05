@@ -19,7 +19,6 @@ import 'hammerjs';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { CategoriesComponent } from './dashboard/categories/categories.component';
 import { CollectionsComponent } from './dashboard/collections/collections.component';
-import { ViewProductComponent } from './dashboard/view-product/view-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 
@@ -31,7 +30,6 @@ import { CartComponent } from './cart/cart.component';
     DashboardComponent,
     CategoriesComponent,
     CollectionsComponent,
-    ViewProductComponent,
     ProductDetailsComponent,
     CartComponent
   ],

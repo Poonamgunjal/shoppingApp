@@ -12,7 +12,7 @@ export class DataCollectionService {
  constructor(private http: HttpClient, private _router: Router) {
  }
 
-  resData;
+  resData=JSON.parse(localStorage.getItem('resData'));;
   selectedProduct;
   addProduct: any[]=new Array();
 
@@ -31,6 +31,7 @@ export class DataCollectionService {
 
 //to return json data to collection component
   sendData() {
+   localStorage.setItem('resData',JSON.stringify(this.resData));
    return this.resData;
   }
 
@@ -62,4 +63,6 @@ export class DataCollectionService {
      showCart(){
        return this.addProduct;
      }
+
+
 }
